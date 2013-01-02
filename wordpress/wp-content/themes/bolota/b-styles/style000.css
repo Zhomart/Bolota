@@ -223,7 +223,7 @@ code {
     padding: 0;
     position: relative;
 }
-.shadow{ background: url("shadow00.png") no-repeat center top; height:20px; width:100%;}
+.shadow{ background: url("/wp-content/themes/bolota/b-images/shadow00.png") no-repeat center top; height:20px; width:100%;}
 .box{ text-align:center; padding-bottom:20px;}
 .box h5{ margin-bottom:0px; margin-top:18px;}
 .box p{ font-style:italic; margin:0px;}
@@ -442,7 +442,7 @@ ul.sf-menu li li li.sfHover ul {
 .package-list h3, .package-list p{padding-left:25px;}
 .package-list p{ font-style:italic;}
 .package-list img{ float:right; padding-top:8px; padding-right:5px;}
-.package-list .four{background:url(small-sh.png) no-repeat; }
+.package-list .four{background:url(/wp-content/themes/bolota/b-images/small-sh.png) no-repeat; }
 .package-list .four.alpha{ background:none;}
 .package-list .four.alpha h3, .package-list .four.alpha p{ padding-left:0px;}
 

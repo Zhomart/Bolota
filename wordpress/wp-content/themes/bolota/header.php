@@ -104,3 +104,22 @@
         <div class="clear"></div>
 			</header><!-- #branding -->
 		</div>
+
+
+		<?php if (!is_front_page()): ?>
+	      <!-- BEFORE CONTENT -->
+	 		<div id="outerbeforecontent" class="frontpage">
+	        	<div class="main">
+	        	<div class="container">
+	                <div class="twelve columns" id="beforecontent">
+	                    <div class="pagetitle-container">
+	                        <h1>Сайт Ассоциации Экономистов Казахстана</h1>
+	                        
+	                    </div>
+	                    <a class="button" href="http://demohtml.templatesquare.com/broadway/#">Регистрация</a>
+	                </div>
+	            </div>
+	            </div>
+	        </div>
+	        <!-- END BEFORE CONTENT -->
+	   <?php endif ?>

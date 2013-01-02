@@ -96,10 +96,10 @@
 	margin: 0px auto 0px auto;
 }
 .ls-broadway a.ls-nav-prev, .ls-broadway a.ls-nav-next {width: 51px; height: 51px; display: block; position: absolute; cursor: pointer; text-indent: -999em;}
-.ls-broadway a.ls-nav-next {right:5%; top:43%; background: url(flex-nex.png) no-repeat center center;}
+.ls-broadway a.ls-nav-next {right:5%; top:43%; background: url(/wp-content/themes/bolota/b-images/flex-nex.png) no-repeat center center;}
 .ls-broadway a.ls-nav-next:hover{ background: url(http://demohtml.templatesquare.com/broadway/images/flex-next-h.png) no-repeat center center;}
 
-.ls-broadway a.ls-nav-prev {left:5%; top:43%; background: url(flex-pre.png) no-repeat center center;}
+.ls-broadway a.ls-nav-prev {left:5%; top:43%; background: url(/wp-content/themes/bolota/b-images/flex-pre.png) no-repeat center center;}
 .ls-broadway a.ls-nav-prev:hover{  background: url(http://demohtml.templatesquare.com/broadway/images/flex-prev-h.png) no-repeat center center;}
 
 .ls-layer{ text-align:center;}

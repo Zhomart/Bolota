@@ -15,13 +15,25 @@
 get_header(); ?>
 
   <?php if (is_front_page()) include('home_page.php'); else { ?>
-  	<?php while ( have_posts() ) : the_post(); ?>
+    <div id="outermain">
+      <div class="main bg-white">
+        <div class="shadow"></div>
+              <div class="container">
+                  <section id="maincontent" class="twelve columns">
 
-  		<?php get_template_part( 'content', 'page' ); ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-  		<?php comments_template( '', true ); ?>
+                      <?php get_template_part( 'content', 'page' ); ?>
 
-  	<?php endwhile; // end of the loop. ?>
+                      <?php comments_template( '', true ); ?>
+
+                    <?php endwhile; // end of the loop. ?>
+
+                      <div class="clear"></div><!-- clear float --> 
+                  </section>
+                </div>
+              </div>
+            </div>
   <?php } ?>
 
 <?php get_footer(); ?>
