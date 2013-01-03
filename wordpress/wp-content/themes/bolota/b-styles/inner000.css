@@ -96,7 +96,7 @@ USE THIS STYLE SHEET FOR INNER PAGE
 .ts-display-pf-text h2, .ts-display-pf-text h2 a{margin-bottom:0px; font-size:13px; font-weight:bold; font-style:normal;}
 
 .ts-display-pf-img a .rollover{
-	background:url(hover-zo.png);
+	background:url(../b-images/hover-zo.png);
 	background-repeat:no-repeat;
 	background-position:center;
 	background-color:#000;
