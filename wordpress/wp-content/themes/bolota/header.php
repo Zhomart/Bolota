@@ -116,7 +116,7 @@
 	                        <h1>Сайт Ассоциации Экономистов Казахстана</h1>
 	                    </div>
 	                    <?php if (!is_user_logged_in()): ?>
-	                    	<a class="button" href="http://demohtml.templatesquare.com/broadway/#">Регистрация</a>
+	                    	<a class="button" href="<?php echo get_bloginfo( "wpurl" ) ?>/wp-login.php?action=register">Регистрация</a>
 	                    <? endif ?>
 	                </div>
 	            </div>

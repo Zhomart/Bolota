@@ -69,7 +69,7 @@
                     <h1>Сайт Ассоциации Экономистов Казахстана</h1>
 
                 </div>
-                <a class="button" href="http://demohtml.templatesquare.com/broadway/#">Регистрация</a>
+                <a class="button" href="<?php echo get_bloginfo( "wpurl" ) ?>/wp-login.php?action=register">Регистрация</a>
             </div>
         </div>
         </div>
@@ -114,7 +114,7 @@
                     <li><span>Взаимодействие с высшими учебными заведениями</span></li>
                     <li><span>Взаимодействие с государственными органами и бизнес-ассоциациями</span></li>
                 </ul>
-                <a href="http://demohtml.templatesquare.com/broadway/#">— Подробнее</a>
+                <a href="/about">— Подробнее</a>
             </div>
           <div class="seven columns omega">
       <img src="/wp-content/themes/bolota/b-images/pic10000.png" alt="">
