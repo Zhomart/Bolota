@@ -114,9 +114,10 @@
 	                <div class="twelve columns" id="beforecontent">
 	                    <div class="pagetitle-container">
 	                        <h1>Сайт Ассоциации Экономистов Казахстана</h1>
-	                        
 	                    </div>
-	                    <a class="button" href="http://demohtml.templatesquare.com/broadway/#">Регистрация</a>
+	                    <?php if (!is_user_logged_in()): ?>
+	                    	<a class="button" href="http://demohtml.templatesquare.com/broadway/#">Регистрация</a>
+	                    <? endif ?>
 	                </div>
 	            </div>
 	            </div>
