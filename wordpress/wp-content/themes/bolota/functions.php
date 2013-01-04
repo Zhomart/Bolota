@@ -612,3 +612,65 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+
+//[show years]
+function show_years_func( $atts ){
+  extract( shortcode_atts( array(
+    'folder' => '',
+    ), $atts ) );
+
+  $folder_path = ABSPATH.$folder;
+
+  $files = scandir($folder_path);
+
+  rsort($files);
+
+ 	$years = "";
+  foreach ($files as $the_file) {
+  	if (!preg_match("/^\d{4}$/", $the_file)) continue;
+  	$years = $years."<li><a class=\"ln_rubrikator\" href=\"/kev/journals/?journal_year=$the_file\">$the_file</a></li>";
+  }
+
+	$res = "
+		<ul style=\"list-style-type: none;\">
+			$years
+		</ul>
+	";
+
+ return $res;
+}
+
+add_shortcode( 'show_years', 'show_years_func' );
+
+//[journal_year]
+function get_journal_year() {
+  $year = '2013';
+
+  $raw_year = $_GET["journal_year"];
+
+  if (preg_match("/^\d{4}$/", $raw_year)){
+  	$year = $raw_year;
+  }
+
+  return $year;
+}
+
+add_shortcode( 'journal_year', 'get_journal_year' );
+
+
+//[list_journals]
+function list_journals_func( $atts ){
+  extract( shortcode_atts( array(
+    'folder' => '',
+    ), $atts ) );
+
+  $folder = rtrim($folder, "/");
+
+  $folder = $folder."/".get_journal_year();
+
+  $result = do_shortcode("[listyofiles folder=\"$folder\" sort=\"reverse_date\" options=\"table,icon,date,filesize,new_window,hide_extension\"]");
+
+  return $result;
+}
+
+add_shortcode( 'list_journals', 'list_journals_func' );

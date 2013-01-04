@@ -10,7 +10,6 @@
  */
 ?>
 
-        
         <!-- FOOTER SIDEBAR -->
         <div id="outerfootersidebar">
         	<div class="main bg-white">
@@ -34,19 +33,19 @@
                             <ul class="ts-recent-post-widget">
                             	<li>
                                 	<img src="/wp-content/themes/bolota/b-images/pp100000.jpg" alt="" class="alignleft ">
-                                    <h3><a href="http://demohtml.templatesquare.com/broadway/#">Тема месяца 1</a></h3>
+                                    <h3><a href="#">Тема месяца 1</a></h3>
                                     <span class="smalldate">Сентябрь 27, 2012</span>
                                     <span class="clear"></span>
                                 </li>
                             	<li>
                                 	<img src="/wp-content/themes/bolota/b-images/pp200000.jpg" alt="" class="alignleft ">
-                                    <h3><a href="http://demohtml.templatesquare.com/broadway/#">Тема месяца 2</a></h3>
+                                    <h3><a href="#">Тема месяца 2</a></h3>
                                     <span class="smalldate">Сентябрь 27, 2012</span>
                                     <span class="clear"></span>
                                 </li>
                             	<li>
                                 	<img src="/wp-content/themes/bolota/b-images/pp300000.jpg" alt="" class="alignleft ">
-                                    <h3><a href="http://demohtml.templatesquare.com/broadway/#">Тема месяца 3</a></h3>
+                                    <h3><a href="#">Тема месяца 3</a></h3>
                                     <span class="smalldate">Сентябрь 27, 2012</span>
                                     <span class="clear"></span>
                                 </li>
@@ -59,13 +58,13 @@
                             <li class="widget-container">
                                 <h2 class="widget-title">Разделы</h2>
                                 <ul>
-                                    <li><a href="http://demohtml.templatesquare.com/broadway/#">О Нас</a></li>
-                                    <li><a href="http://demohtml.templatesquare.com/broadway/#">Деятельность</a></li>
-                                    <li><a href="http://demohtml.templatesquare.com/broadway/#">КЭК</a></li>
-                                    <li><a href="http://demohtml.templatesquare.com/broadway/#">Публикации</a></li>
-                                    <li><a href="http://demohtml.templatesquare.com/broadway/#">Ресурсы</a></li>
-                                    <li><a href="http://demohtml.templatesquare.com/broadway/#">Тема месяца</a></li>
-									<li><a href="http://demohtml.templatesquare.com/broadway/#">Форум</a></li>
+                                    <li><a href="<?php echo site_url("/about"); ?>">О Нас</a></li>
+                                    <li><a href="<?php echo site_url("/activities"); ?>">Деятельность</a></li>
+                                    <li><a href="<?php echo site_url("/kev"); ?>">КЭВ</a></li>
+                                    <li><a href="<?php echo site_url("/content"); ?>">Публикации</a></li>
+                                    <li><a href="<?php echo site_url("/resources"); ?>">Ресурсы</a></li>
+                                    <li><a href="<?php echo site_url("/month-theme"); ?>">Тема месяца</a></li>
+                                    <li><a href="<?php echo site_url("/forums"); ?>">Форум</a></li>
                                 </ul>
                                 <div class="clear"></div>
                             </li>
@@ -78,20 +77,18 @@
                                 <div class="textwidget">
                                 <img src="/wp-content/themes/bolota/b-images/map00000.png" alt="" class="alignnone">
                                 <p>Описание контактов</p>
-                                
                                 </div>
                           </li>
                         </ul>
                     </div>
                     <div class="clear"></div>
                     </footer>
-                    
                 </div>
             </div>
             </div>
         </div>
         <!-- END FOOTER SIDEBAR -->
-        
+
         <!-- FOOTER -->
         <div id="outerfooter">
         	<div class="main bg-grey">

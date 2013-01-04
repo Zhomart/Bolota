@@ -69,7 +69,9 @@
                     <h1>Сайт Ассоциации Экономистов Казахстана</h1>
 
                 </div>
-                <a class="button" href="<?php echo get_bloginfo( "wpurl" ) ?>/wp-login.php?action=register">Регистрация</a>
+                <?php if (!is_user_logged_in()): ?>
+                    <a class="button" href="<?php echo site_url( "/wp-login.php?action=register" ) ?>">Регистрация</a>
+                <?php endif ?>
             </div>
         </div>
         </div>
@@ -86,19 +88,25 @@
 
             <div class="package-list">
                 <div class="four columns alpha">
-                    <img src="/wp-content/themes/bolota/b-images/icon1000.png" alt="">
-                    <h3 class="margin_bottomoff">Казахстанский Экономический Вестник</h3>
-                    <p>Новый выпуск</p>
+                    <a href="<?php echo site_url("/kev") ?>">
+                        <img src="/wp-content/themes/bolota/b-images/icon1000.png" alt="">
+                        <h3 class="margin_bottomoff">Казахстанский Экономический Вестник</h3>
+                        <p>Новый выпуск</p>
+                    </a>
                 </div>
                 <div class="four columns">
-                    <img src="/wp-content/themes/bolota/b-images/icon2000.png" alt="">
-                    <h3 class="margin_bottomoff">Публикации</h3>
-                    <p>Архив публикаций</p>
+                    <a href="<?php echo site_url("/content") ?>">
+                        <img src="/wp-content/themes/bolota/b-images/icon2000.png" alt="">
+                        <h3 class="margin_bottomoff">Публикации</h3>
+                        <p>Архив публикаций</p>
+                    </a>
                 </div>
                 <div class="four columns omega">
-                    <img src="/wp-content/themes/bolota/b-images/icon3000.png" alt="">
-                    <h3 class="margin_bottomoff">Вакансии</h3>
-                    <p>Новые вакансии</p>
+                    <a href="<?php echo site_url("/resources/vacancy") ?>">
+                        <img src="/wp-content/themes/bolota/b-images/icon3000.png" alt="">
+                        <h3 class="margin_bottomoff">Вакансии</h3>
+                        <p>Новые вакансии</p>
+                    </a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -122,80 +130,62 @@
              <div class="separator small"></div>
             <div class="separator line"></div>
 
+            <?php
+                $news = get_posts(array(
+                    'numberposts' => 3,
+                    'order'=> 'DESC', 'orderby' => 'post_date',
+                    'category' => 7
+                ));
+            ?>
+
             <h3>Последние новости</h3>
-          <div class="four columns alpha">
-              <h5 class="margin_bottom_middle"> Новость 1</h5>
-                <span class="smalldate margin_bottom_middle">Сентябрь 27, 2012 / 0 комментариев</span>
-                <p>Описание новости 1...</p>
-                <a href="http://demohtml.templatesquare.com/broadway/#">— Подробнее</a>
-            </div>
-          <div class="four columns">
-              <h5 class="margin_bottom_middle">Новость 2</h5>
-                <span class="smalldate margin_bottom_middle">Сентябрь 27, 2012 / 0 комментариев</span>
-                <p>Описание новости 2...</p>
-                <a href="http://demohtml.templatesquare.com/broadway/#">— Подробнее</a>
-            </div>
-          <div class="four columns omega">
-              <h5 class="margin_bottom_middle">Новость 3</h5>
-                <span class="smalldate margin_bottom_middle">Сентябрь 27, 2012 / 0 комментариев</span>
-                <p>Описание новости 3...</p>
-                <a href="http://demohtml.templatesquare.com/broadway/#">— Подробнее</a>
-            </div>
+            <?php foreach($news as $n): ?>
+                <div class="four columns alpha">
+                  <h5 class="margin_bottom_middle"><?php echo $n->post_title ?></h5>
+                    <span class="smalldate margin_bottom_middle"><?php echo date_i18n("F j, Y", strtotime($n->post_date)) ?> / <?php echo $n->comment_count; ?> комментариев</span>
+                    <p><?php echo mb_strimwidth($n->post_content, 0, 40, "..."); ?></p>
+                    <a href="<?php echo $n->guid ?>">— Подробнее</a>
+                </div>
+            <?php endforeach ?>
+
             <div class="separator small"></div>
             <div class="separator line"></div>
+
+            <?php
+                $posts = get_posts(array(
+                    'numberposts' => 4,
+                    'order'=> 'DESC', 'orderby' => 'post_date',
+                    'category' => 3
+                ));
+            ?>
 
             <h3>Последние публикации</h3>
             <div id="ts-display-portfolio" class="margin_bottomoff">
             <ul class="ts-display-pf-col-4">
-                <li class="margin_bottomoff">
-                    <div class="ts-display-pf-img">
-                        <a class="image" href="http://demohtml.templatesquare.com/broadway/images/content/img1.jpg" data-rel="prettyPhoto[mixed]">
-                        <span class="rollover"></span>
-                        <img src="/wp-content/themes/bolota/b-images/img10000.jpg" alt=""></a>
-                    </div>
-                    <div class="ts-display-pf-text">
-                        <h2><a href="http://demohtml.templatesquare.com/broadway/#">Публикация 1</a></h2>
-                        <p>Описание публикации 1 </p>
-                    </div>
-                    <div class="ts-display-clear"></div>
+                <?php foreach($posts as $p): setup_postdata($p); ?>
+                    <?php
+                        $attachments = get_posts(array( 'post_type' => 'attachment', 'numberposts' => -1, 'post_status' => null, 'post_parent' => $p->ID ));
+                        $img_url = "/wp-content/themes/bolota/b-images/img10000.jpg";
+                        if ($attachments){
+                            $attachment = $attachments[0];
+                            $img_url = $attachment->guid;
+                        }
+                    ?>
 
-                </li>
-                <li class="margin_bottomoff">
-                    <div class="ts-display-pf-img">
-                      <a class="image" href="http://demohtml.templatesquare.com/broadway/images/content/img2.jpg" data-rel="prettyPhoto[mixed]">
-                        <span class="rollover"></span>
-                      <img src="/wp-content/themes/bolota/b-images/img20000.jpg" alt=""></a>
-                    </div>
-                    <div class="ts-display-pf-text">
-                        <h2><a href="http://demohtml.templatesquare.com/broadway/#">Публикация 2</a></h2>
-                        <p>Описание публикации 2 </p>
-                    </div>
-                    <div class="ts-display-clear"></div>
-                </li>
-                <li class="margin_bottomoff">
-                    <div class="ts-display-pf-img">
-                        <a class="image" href="http://demohtml.templatesquare.com/broadway/images/content/img3.jpg" data-rel="prettyPhoto[mixed]">
-                        <span class="rollover"></span>
-                        <img src="/wp-content/themes/bolota/b-images/img30000.jpg" alt=""></a>
-                    </div>
-                    <div class="ts-display-pf-text">
-                        <h2><a href="http://demohtml.templatesquare.com/broadway/#">Публикация 3</a></h2>
-                        <p>Описание публикация 3 </p>
-                    </div>
-                    <div class="ts-display-clear"></div>
-                </li>
-                <li class="nomargin margin_bottomoff">
-                    <div class="ts-display-pf-img">
-                        <a class="image" href="http://demohtml.templatesquare.com/broadway/images/content/img4.jpg" data-rel="prettyPhoto[mixed]">
-                        <span class="rollover"></span>
-                        <img src="/wp-content/themes/bolota/b-images/img40000.jpg" alt=""></a>
-                    </div>
-                    <div class="ts-display-pf-text">
-                        <h2><a href="http://demohtml.templatesquare.com/broadway/#">Публикация 4</a></h2>
-                        <p>Описание публикации 4 </p>
-                    </div>
-                    <div class="ts-display-clear"></div>
-                </li>
+                    <li class="margin_bottomoff">
+                        <div class="ts-display-pf-img">
+                            <a class="image" href="<?php echo $img_url; ?>" data-rel="prettyPhoto[mixed]">
+                            <span class="rollover"></span>
+                            <img src="<?php echo $img_url; ?>" width="220" height="201" alt=""></a>
+                        </div>
+                        <div class="ts-display-pf-text">
+                            <h2><a href="<?php echo $p->guid ?>">
+                                <?php echo $p->post_title ?>
+                            </a></h2>
+                        </div>
+                        <div class="ts-display-clear"></div>
+                    </li>
+                <?php endforeach ?>
             </ul>
             </div>
 
